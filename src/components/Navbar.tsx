@@ -89,12 +89,12 @@ export const Navbar = () => {
             </Link>
 
             <a
-              href="https://discord.gg/codegrana"
+              href="https://wa.me/5511999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-apple text-sm"
+              className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md"
             >
-              Discord
+              WhatsApp
             </a>
           </div>
 
@@ -127,15 +127,15 @@ export const Navbar = () => {
               <Link to="/contato" className="hover:text-apple-blue-hover transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Contato
               </Link>
-              <a
-                href="https://discord.gg/codegrana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-apple text-sm w-full text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Discord
-              </a>
+            <a
+              href="https://discord.gg/codegrana"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold w-full text-center hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md"
+              onClick={() => setIsOpen(false)}
+            >
+              Discord
+            </a>
             </div>
           </div>
         )}
