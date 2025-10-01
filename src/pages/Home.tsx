@@ -28,7 +28,7 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-accent mb-8 font-medium">
             Acelere seus projetos com automação e IA
           </p>
-          <Button variant="apple" size="lg" asChild className="text-lg">
+          <Button variant="golden" size="lg" asChild className="text-lg">
             <Link to="/produtos">
               Explore Nossos Produtos
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -104,7 +104,7 @@ export default function Home() {
           <p className="text-xl mb-8 text-muted-foreground">
             Conecte-se com desenvolvedores, receba suporte e acesse conteúdo exclusivo
           </p>
-          <Button variant="apple" size="lg" asChild>
+          <Button variant="golden" size="lg" asChild>
             <a
               href="https://discord.gg/codegrana"
               target="_blank"

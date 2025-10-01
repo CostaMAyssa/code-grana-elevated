@@ -1,7 +1,7 @@
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, ShoppingBag, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/hooks/useCart";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,53 +11,90 @@ import {
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { items } = useCart();
-  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 apple-blur border-b border-border">
+    <nav className="fixed top-0 w-full bg-primary text-primary-foreground z-50 shadow-lg">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="text-xl font-semibold tracking-tight">
-            CodeGrana
-          </a>
+          <Link to="/" className="flex items-center space-x-2">
+            <span className="text-2xl font-bold">
+              Code<span className="text-accent">Grana</span>
+            </span>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-sm hover:opacity-70 transition-opacity">
+            <Link
+              to="/"
+              className={`transition-colors hover:text-accent ${
+                isActive("/") ? "text-accent" : ""
+              }`}
+            >
               Home
-            </a>
-            
+            </Link>
+
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-sm hover:opacity-70 transition-opacity">
-                Serviços <ChevronDown className="ml-1 h-4 w-4" />
+              <DropdownMenuTrigger className="flex items-center space-x-1 transition-colors hover:text-accent">
+                <span>Produtos</span>
+                <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-background/95 apple-blur">
+              <DropdownMenuContent className="bg-card border-border">
                 <DropdownMenuItem asChild>
-                  <a href="/produtos">Implementação</a>
+                  <Link to="/produtos?categoria=automacao" className="cursor-pointer">
+                    Automação IA
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <a href="/produtos">Consultorias</a>
+                  <Link to="/produtos?categoria=templates" className="cursor-pointer">
+                    Templates Web
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/produtos?categoria=erp" className="cursor-pointer">
+                    Kits ERP
+                  </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="/codigos" className="text-sm hover:opacity-70 transition-opacity">
-              Área de Códigos
-            </a>
-            <a href="/contato" className="text-sm hover:opacity-70 transition-opacity">
+            <Link
+              to="/membros"
+              className={`transition-colors hover:text-accent ${
+                isActive("/membros") ? "text-accent" : ""
+              }`}
+            >
+              Membros
+            </Link>
+
+            <Link
+              to="/sobre"
+              className={`transition-colors hover:text-accent ${
+                isActive("/sobre") ? "text-accent" : ""
+              }`}
+            >
+              Sobre
+            </Link>
+
+            <Link
+              to="/contato"
+              className={`transition-colors hover:text-accent ${
+                isActive("/contato") ? "text-accent" : ""
+              }`}
+            >
               Contato
-            </a>
-            
-            <Button variant="ghost" size="icon" className="relative" asChild>
-              <a href="/carrinho">
-                <ShoppingBag className="h-5 w-5" />
-                {itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">
-                    {itemCount}
-                  </span>
-                )}
+            </Link>
+
+            <Button variant="golden" size="sm" asChild>
+              <a
+                href="https://discord.gg/codegrana"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Discord
               </a>
             </Button>
           </div>
@@ -66,6 +103,7 @@ export const Navbar = () => {
           <button
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -73,22 +111,29 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-4 animate-fade-in">
-            <a href="/" className="block text-sm hover:opacity-70 transition-opacity">
-              Home
-            </a>
-            <a href="/produtos" className="block text-sm hover:opacity-70 transition-opacity">
-              Serviços
-            </a>
-            <a href="/codigos" className="block text-sm hover:opacity-70 transition-opacity">
-              Área de Códigos
-            </a>
-            <a href="/contato" className="block text-sm hover:opacity-70 transition-opacity">
-              Contato
-            </a>
-            <a href="/carrinho" className="block text-sm hover:opacity-70 transition-opacity">
-              Carrinho ({itemCount})
-            </a>
+          <div className="md:hidden py-4 animate-fade-in">
+            <div className="flex flex-col space-y-4">
+              <Link to="/" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+                Home
+              </Link>
+              <Link to="/produtos" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+                Produtos
+              </Link>
+              <Link to="/membros" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+                Membros
+              </Link>
+              <Link to="/sobre" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+                Sobre
+              </Link>
+              <Link to="/contato" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+                Contato
+              </Link>
+              <Button variant="golden" size="sm" className="w-full" asChild>
+                <a href="https://discord.gg/codegrana" target="_blank" rel="noopener noreferrer">
+                  Discord
+                </a>
+              </Button>
+            </div>
           </div>
         )}
       </div>

@@ -118,7 +118,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button type="submit" variant="apple" size="lg" className="w-full">
+                <Button type="submit" variant="golden" size="lg" className="w-full">
                   Enviar Mensagem
                 </Button>
               </form>
@@ -187,7 +187,7 @@ export default function Contact() {
               <p className="text-muted-foreground mb-6">
                 Junte-se a mais de 5.000 desenvolvedores na nossa comunidade
               </p>
-              <Button variant="apple" size="lg" className="w-full" asChild>
+              <Button variant="golden" size="lg" className="w-full" asChild>
                 <a
                   href="https://discord.gg/codegrana"
                   target="_blank"

@@ -35,12 +35,12 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/produtos" className="hover:text-accent transition-colors">
-                  Serviços
+                  Produtos
                 </Link>
               </li>
               <li>
-                <Link to="/codigos" className="hover:text-accent transition-colors">
-                  Área de Códigos
+                <Link to="/membros" className="hover:text-accent transition-colors">
+                  Membros
                 </Link>
               </li>
               <li>
@@ -127,7 +127,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} CodeGrana. Todos os direitos reservados.
           </p>
           <Button
-            variant="apple"
+            variant="golden"
             size="sm"
             onClick={scrollToTop}
             className="flex items-center gap-2"
