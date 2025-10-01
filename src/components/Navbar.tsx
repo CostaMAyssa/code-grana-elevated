@@ -16,7 +16,7 @@ export const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full bg-primary text-primary-foreground z-50 shadow-lg">
+    <nav className="fixed top-0 w-full navbar-apple text-black z-50">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -30,15 +30,15 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className={`transition-colors hover:text-accent ${
-                isActive("/") ? "text-accent" : ""
+              className={`transition-colors hover:text-apple-blue ${
+                isActive("/") ? "text-apple-blue" : "text-black"
               }`}
             >
               Home
             </Link>
 
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 transition-colors hover:text-accent">
+              <DropdownMenuTrigger className="flex items-center space-x-1 transition-colors hover:text-apple-blue text-black">
                 <span>Produtos</span>
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
@@ -63,8 +63,8 @@ export const Navbar = () => {
 
             <Link
               to="/membros"
-              className={`transition-colors hover:text-accent ${
-                isActive("/membros") ? "text-accent" : ""
+              className={`transition-colors hover:text-apple-blue ${
+                isActive("/membros") ? "text-apple-blue" : "text-black"
               }`}
             >
               Membros
@@ -72,8 +72,8 @@ export const Navbar = () => {
 
             <Link
               to="/sobre"
-              className={`transition-colors hover:text-accent ${
-                isActive("/sobre") ? "text-accent" : ""
+              className={`transition-colors hover:text-apple-blue ${
+                isActive("/sobre") ? "text-apple-blue" : "text-black"
               }`}
             >
               Sobre
@@ -81,22 +81,21 @@ export const Navbar = () => {
 
             <Link
               to="/contato"
-              className={`transition-colors hover:text-accent ${
-                isActive("/contato") ? "text-accent" : ""
+              className={`transition-colors hover:text-apple-blue ${
+                isActive("/contato") ? "text-apple-blue" : "text-black"
               }`}
             >
               Contato
             </Link>
 
-            <Button variant="golden" size="sm" asChild>
-              <a
-                href="https://discord.gg/codegrana"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Discord
-              </a>
-            </Button>
+            <a
+              href="https://discord.gg/codegrana"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-apple text-sm"
+            >
+              Discord
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -113,26 +112,30 @@ export const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Home
               </Link>
-              <Link to="/produtos" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/produtos" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Produtos
               </Link>
-              <Link to="/membros" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/membros" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Membros
               </Link>
-              <Link to="/sobre" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/sobre" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Sobre
               </Link>
-              <Link to="/contato" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/contato" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Contato
               </Link>
-              <Button variant="golden" size="sm" className="w-full" asChild>
-                <a href="https://discord.gg/codegrana" target="_blank" rel="noopener noreferrer">
-                  Discord
-                </a>
-              </Button>
+              <a
+                href="https://discord.gg/codegrana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-apple text-sm w-full text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Discord
+              </a>
             </div>
           </div>
         )}

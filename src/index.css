@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* CodeGrana Premium Design System - Preto, Branco, Dourado */
+    /* CodeGrana Premium Design System - Cores Exatas da Apple */
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
@@ -18,35 +18,43 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    /* Preto absoluto para primário */
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
+    /* Fundo transparente da navegação Apple */
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
-    /* Dourado luxuoso para acentos */
-    --secondary: 45 85% 53%;
-    --secondary-foreground: 0 0% 0%;
+    /* Azul Apple #007AFF para acentos e CTAs */
+    --secondary: 210 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 53%;
 
-    /* Dourado para destaques e CTAs */
-    --accent: 45 85% 53%;
-    --accent-foreground: 0 0% 0%;
+    /* Azul Apple para destaques e CTAs */
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 45 85% 53%;
+    --ring: 210 100% 50%;
 
     --radius: 0.75rem;
+
+    /* Cores específicas da Apple */
+    --apple-blue: 210 100% 50%;        /* #007AFF */
+    --apple-gray: 0 0% 53%;            /* #86868B */
+    --apple-gray-light: 0 0% 60%;      /* #999999 */
+    --apple-gray-dark: 0 0% 45%;       /* #6D6D72 */
+    --apple-black: 0 0% 0%;            /* #000000 */
+    --apple-white: 0 0% 100%;          /* #FFFFFF */
 
     /* Gradientes e sombras premium */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.6), hsl(0 0% 0% / 0.8));
     --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
     --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
-    --shadow-golden: 0 4px 16px rgba(212, 175, 55, 0.3);
+    --shadow-apple: 0 4px 16px rgba(0, 122, 255, 0.3);
 
     /* Animações */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,24 +70,25 @@ All colors MUST be HSL.
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    /* Fundo transparente da navegação Apple no modo escuro */
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 85% 53%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 210 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 65%;
+    --muted-foreground: 0 0% 53%;
 
-    --accent: 45 85% 53%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 45 85% 53%;
+    --ring: 210 100% 50%;
   }
 }
 
@@ -124,5 +133,68 @@ All colors MUST be HSL.
 
   .text-gradient-gold {
     @apply bg-gradient-to-r from-accent via-yellow-400 to-accent bg-clip-text text-transparent;
+  }
+
+  /* Classes utilitárias para as cores da Apple */
+  .text-apple-blue {
+    color: hsl(var(--apple-blue));
+  }
+
+  .bg-apple-blue {
+    background-color: hsl(var(--apple-blue));
+  }
+
+  .border-apple-blue {
+    border-color: hsl(var(--apple-blue));
+  }
+
+  .text-apple-gray {
+    color: hsl(var(--apple-gray));
+  }
+
+  .bg-apple-gray {
+    background-color: hsl(var(--apple-gray));
+  }
+
+  .border-apple-gray {
+    border-color: hsl(var(--apple-gray));
+  }
+
+  .text-apple-gray-light {
+    color: hsl(var(--apple-gray-light));
+  }
+
+  .text-apple-gray-dark {
+    color: hsl(var(--apple-gray-dark));
+  }
+
+  /* Navegação estilo Apple com blur */
+  .navbar-apple {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-apple-dark {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Botões estilo Apple */
+  .btn-apple {
+    background: hsl(var(--apple-blue));
+    color: white;
+    border-radius: 28px;
+    padding: 8px 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+  }
+
+  .btn-apple:hover {
+    background: hsl(210 100% 45%);
+    transform: translateY(-1px);
   }
 }

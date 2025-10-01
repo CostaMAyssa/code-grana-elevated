@@ -23,23 +23,21 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Marketplace líder em código fonte
             <br />
-            <span className="text-accent">premium no Brasil</span>
+            <span className="text-yellow-400">premium no Brasil</span>
           </h1>
-          <p className="text-xl md:text-2xl text-accent mb-8 font-medium">
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">
             Acelere seus projetos com automação e IA
           </p>
-          <Button variant="golden" size="lg" asChild className="text-lg">
-            <Link to="/produtos">
-              Explore Nossos Produtos
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
+          <Link to="/produtos" className="btn-apple text-lg inline-flex items-center">
+            Explore Nossos Produtos
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse" />
+          <div className="w-6 h-10 border-2 border-apple-blue rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-apple-blue rounded-full mt-2 animate-pulse" />
           </div>
         </div>
       </section>
@@ -49,9 +47,9 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Por que escolher a CodeGrana?
+              Por que escolher a <span className="text-apple-blue">CodeGrana</span>?
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-apple-gray">
               Desenvolvimento profissional ao seu alcance
             </p>
           </div>
@@ -88,7 +86,7 @@ export default function Home() {
                   <benefit.icon className="w-8 h-8 text-accent-foreground" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
+                <p className="text-apple-gray">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -96,25 +94,23 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-apple-blue text-white">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Junte-se à nossa comunidade no Discord
           </h2>
-          <p className="text-xl mb-8 text-muted-foreground">
+          <p className="text-xl mb-8 text-gray-200">
             Conecte-se com desenvolvedores, receba suporte e acesse conteúdo exclusivo
           </p>
-          <Button variant="golden" size="lg" asChild>
-            <a
-              href="https://discord.gg/codegrana"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg"
-            >
-              Entrar no Discord
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </a>
-          </Button>
+          <a
+            href="https://discord.gg/codegrana"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-apple-blue px-8 py-4 rounded-full text-lg font-medium inline-flex items-center hover:bg-gray-100 transition-colors"
+          >
+            Entrar no Discord
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </a>
         </div>
       </section>
 
@@ -123,9 +119,9 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              O que nossos clientes dizem
+              O que nossos <span className="text-apple-blue">clientes</span> dizem
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-apple-gray">
               Histórias de sucesso reais
             </p>
           </div>
@@ -169,7 +165,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-bold">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  <p className="text-sm text-apple-gray">{testimonial.role}</p>
                 </div>
               </div>
             ))}
