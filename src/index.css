@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 53%;
+    --muted-foreground: 0 0% 35%;
 
     /* Cor escura da Apple para destaques e CTAs */
     --accent: 240 5% 11%;
@@ -45,16 +45,16 @@ All colors MUST be HSL.
   /* Cores específicas da Apple */
   --apple-blue: 210 100% 50%;        /* #007AFF */
   --apple-blue-hover: 240 5% 11%;    /* #1D1D1F - cor exata da Apple para hover */
-  --apple-gray: 0 0% 53%;            /* #86868B */
-  --apple-gray-light: 0 0% 60%;      /* #999999 */
-  --apple-gray-dark: 0 0% 45%;       /* #6D6D72 */
+  --apple-gray: 0 0% 40%;            /* #666666 - mais escuro para melhor contraste */
+  --apple-gray-light: 0 0% 50%;      /* #808080 - mais escuro */
+  --apple-gray-dark: 0 0% 30%;       /* #4D4D4D - mais escuro */
   --apple-black: 0 0% 0%;            /* #000000 */
   --apple-white: 0 0% 100%;          /* #FFFFFF */
 
     /* Gradientes e sombras premium */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.6), hsl(0 0% 0% / 0.8));
-    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
-    --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.15);
+    --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.25);
     --shadow-apple: 0 4px 16px rgba(0, 122, 255, 0.3);
 
     /* Animações */
@@ -79,7 +79,7 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 53%;
+    --muted-foreground: 0 0% 70%;
 
     --accent: 240 5% 11%;
     --accent-foreground: 0 0% 100%;
@@ -201,5 +201,27 @@ All colors MUST be HSL.
   .btn-apple:hover {
     background: hsl(210 100% 45%);
     transform: translateY(-1px);
+  }
+
+  /* Classes para melhor contraste de texto */
+  .text-contrast {
+    color: hsl(0 0% 25%);
+  }
+
+  .text-contrast-light {
+    color: hsl(0 0% 35%);
+  }
+
+  .text-contrast-dark {
+    color: hsl(0 0% 15%);
+  }
+
+  /* Sombras mais escuras para cards */
+  .shadow-card-dark {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .shadow-card-hover-dark {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 }
