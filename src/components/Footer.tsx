@@ -14,7 +14,7 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4">
-              Code<span className="text-accent">Grana</span>
+              Code<span className="text-apple-blue-hover">Grana</span>
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
               Marketplace líder em código fonte premium no Brasil
@@ -29,22 +29,22 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Links Rápidos</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="hover:text-accent transition-colors">
+                <Link to="/" className="hover:text-apple-blue-hover transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/produtos" className="hover:text-accent transition-colors">
+                <Link to="/produtos" className="hover:text-apple-blue-hover transition-colors">
                   Produtos
                 </Link>
               </li>
               <li>
-                <Link to="/membros" className="hover:text-accent transition-colors">
+                <Link to="/membros" className="hover:text-apple-blue-hover transition-colors">
                   Membros
                 </Link>
               </li>
               <li>
-                <Link to="/sobre" className="hover:text-accent transition-colors">
+                <Link to="/sobre" className="hover:text-apple-blue-hover transition-colors">
                   Sobre
                 </Link>
               </li>
@@ -56,22 +56,22 @@ export const Footer = () => {
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-apple-blue-hover transition-colors">
                   Termos de Uso
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-apple-blue-hover transition-colors">
                   Política de Privacidade
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-accent transition-colors">
+                <a href="#" className="hover:text-apple-blue-hover transition-colors">
                   Política de Reembolso
                 </a>
               </li>
               <li>
-                <Link to="/contato" className="hover:text-accent transition-colors">
+                <Link to="/contato" className="hover:text-apple-blue-hover transition-colors">
                   Contato
                 </Link>
               </li>
@@ -86,7 +86,7 @@ export const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-apple-blue-hover transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -95,7 +95,7 @@ export const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-apple-blue-hover transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -104,7 +104,7 @@ export const Footer = () => {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-apple-blue-hover transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
@@ -113,7 +113,7 @@ export const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="hover:text-apple-blue-hover transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />

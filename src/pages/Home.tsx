@@ -36,8 +36,8 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-apple-blue rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-apple-blue rounded-full mt-2 animate-pulse" />
+          <div className="w-6 h-10 border-2 border-apple-blue-hover rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-apple-blue-hover rounded-full mt-2 animate-pulse" />
           </div>
         </div>
       </section>
@@ -47,7 +47,7 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Por que escolher a <span className="text-apple-blue">CodeGrana</span>?
+              Por que escolher a <span className="text-apple-blue-hover">CodeGrana</span>?
             </h2>
             <p className="text-xl text-apple-gray">
               Desenvolvimento profissional ao seu alcance
@@ -82,8 +82,8 @@ export default function Home() {
                 className="bg-card p-8 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 bg-accent rounded-lg flex items-center justify-center mb-6">
-                  <benefit.icon className="w-8 h-8 text-accent-foreground" />
+                <div className="w-16 h-16 bg-apple-blue-hover rounded-lg flex items-center justify-center mb-6">
+                  <benefit.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
                 <p className="text-apple-gray">{benefit.description}</p>
@@ -94,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-apple-blue text-white">
+      <section className="py-20 bg-apple-blue-hover text-white">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Junte-se à nossa comunidade no Discord
@@ -106,7 +106,7 @@ export default function Home() {
             href="https://discord.gg/codegrana"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-apple-blue px-8 py-4 rounded-full text-lg font-medium inline-flex items-center hover:bg-gray-100 transition-colors"
+            className="bg-white text-apple-blue-hover px-8 py-4 rounded-full text-lg font-medium inline-flex items-center hover:bg-gray-100 transition-colors"
           >
             Entrar no Discord
             <ArrowRight className="ml-2 w-5 h-5" />
@@ -119,7 +119,7 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              O que nossos <span className="text-apple-blue">clientes</span> dizem
+              O que nossos <span className="text-apple-blue-hover">clientes</span> dizem
             </h2>
             <p className="text-xl text-apple-gray">
               Histórias de sucesso reais
@@ -150,7 +150,7 @@ export default function Home() {
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="mb-6">
-                  <div className="flex text-accent mb-2">
+                  <div className="flex text-apple-blue-hover mb-2">
                     {[...Array(5)].map((_, i) => (
                       <svg
                         key={i}

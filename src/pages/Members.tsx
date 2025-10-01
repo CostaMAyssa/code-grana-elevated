@@ -65,7 +65,7 @@ export default function Members() {
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Junte-se à Comunidade CodeGrana
           </h1>
-          <p className="text-xl text-accent font-medium mb-2">
+          <p className="text-xl text-apple-blue-hover font-medium mb-2">
             Leve sua automação para outro nível
           </p>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -86,7 +86,7 @@ export default function Members() {
             >
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-accent text-accent-foreground px-4 py-1 rounded-full text-sm font-bold">
+                  <span className="bg-apple-blue-hover text-apple-blue-hover-foreground px-4 py-1 rounded-full text-sm font-bold">
                     MAIS POPULAR
                   </span>
                 </div>
@@ -103,7 +103,7 @@ export default function Members() {
                 {/* Tier name and price */}
                 <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-accent">
+                  <span className="text-4xl font-bold text-apple-blue-hover">
                     R$ {tier.price.toFixed(2)}
                   </span>
                   <span className="text-muted-foreground">/mês</span>
@@ -113,7 +113,7 @@ export default function Members() {
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <Check className="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-apple-blue-hover mr-3 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}

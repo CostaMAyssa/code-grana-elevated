@@ -86,7 +86,7 @@ export default function Products() {
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Confira Nossos Produtos
           </h1>
-          <p className="text-xl text-accent font-medium">
+          <p className="text-xl text-apple-blue-hover font-medium">
             Soluções prontas para automação e IA
           </p>
         </div>
@@ -149,14 +149,14 @@ export default function Products() {
                 <ul className="space-y-2 mb-6">
                   {product.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-sm">
-                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2" />
+                      <span className="w-1.5 h-1.5 bg-apple-blue-hover rounded-full mr-2" />
                       {feature}
                     </li>
                   ))}
                 </ul>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-accent">
+                  <span className="text-3xl font-bold text-apple-blue-hover">
                     R$ {product.price}
                   </span>
                   <Button

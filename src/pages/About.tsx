@@ -7,7 +7,7 @@ export default function About() {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Sobre a CodeGrana</h1>
-          <p className="text-xl text-accent font-medium max-w-3xl mx-auto">
+          <p className="text-xl text-apple-blue-hover font-medium max-w-3xl mx-auto">
             Democratizando o desenvolvimento rápido com IA e automação no Brasil
           </p>
         </div>
@@ -17,7 +17,7 @@ export default function About() {
           <div className="bg-card rounded-xl p-8 md:p-12 shadow-card">
             <h2 className="text-3xl font-bold mb-6">Nossa Missão</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              A <span className="text-accent font-semibold">CodeGrana</span> nasceu com o
+              A <span className="text-apple-blue-hover font-semibold">CodeGrana</span> nasceu com o
               propósito de revolucionar a forma como desenvolvedores e empresas constroem
               soluções digitais no Brasil. Acreditamos que código de qualidade não deve
               ser um privilégio, mas sim uma ferramenta acessível para todos que desejam
@@ -45,10 +45,10 @@ export default function About() {
               className="bg-card rounded-xl p-8 text-center shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="w-8 h-8 text-accent-foreground" />
+              <div className="w-16 h-16 bg-apple-blue-hover rounded-full flex items-center justify-center mx-auto mb-4">
+                <stat.icon className="w-8 h-8 text-apple-blue-hover-foreground" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">{stat.value}</div>
+              <div className="text-4xl font-bold text-apple-blue-hover mb-2">{stat.value}</div>
               <div className="text-muted-foreground">{stat.label}</div>
             </div>
           ))}
@@ -94,21 +94,21 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Compromisso com Você</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center">
-              <Shield className="w-12 h-12 text-accent mb-4" />
+              <Shield className="w-12 h-12 text-apple-blue-hover mb-4" />
               <h3 className="font-semibold mb-2">Pagamentos Seguros</h3>
               <p className="text-sm text-muted-foreground">
                 Transações protegidas via Asaas
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <Award className="w-12 h-12 text-accent mb-4" />
+              <Award className="w-12 h-12 text-apple-blue-hover mb-4" />
               <h3 className="font-semibold mb-2">Licenças Oficiais</h3>
               <p className="text-sm text-muted-foreground">
                 Documentação completa e legal
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <Users className="w-12 h-12 text-accent mb-4" />
+              <Users className="w-12 h-12 text-apple-blue-hover mb-4" />
               <h3 className="font-semibold mb-2">Suporte 24/7</h3>
               <p className="text-sm text-muted-foreground">
                 Comunidade ativa no Discord

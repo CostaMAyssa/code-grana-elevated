@@ -22,7 +22,7 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <span className="text-2xl font-bold">
-              Code<span className="text-accent">Grana</span>
+              Code<span className="text-apple-blue-hover">Grana</span>
             </span>
           </Link>
 
@@ -30,15 +30,15 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className={`transition-colors hover:text-apple-blue ${
-                isActive("/") ? "text-apple-blue" : "text-black"
+              className={`transition-colors hover:text-apple-blue-hover ${
+                isActive("/") ? "text-apple-blue-hover" : "text-black"
               }`}
             >
               Home
             </Link>
 
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 transition-colors hover:text-apple-blue text-black">
+              <DropdownMenuTrigger className="flex items-center space-x-1 transition-colors hover:text-apple-blue-hover text-black">
                 <span>Produtos</span>
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
@@ -63,8 +63,8 @@ export const Navbar = () => {
 
             <Link
               to="/membros"
-              className={`transition-colors hover:text-apple-blue ${
-                isActive("/membros") ? "text-apple-blue" : "text-black"
+              className={`transition-colors hover:text-apple-blue-hover ${
+                isActive("/membros") ? "text-apple-blue-hover" : "text-black"
               }`}
             >
               Membros
@@ -72,8 +72,8 @@ export const Navbar = () => {
 
             <Link
               to="/sobre"
-              className={`transition-colors hover:text-apple-blue ${
-                isActive("/sobre") ? "text-apple-blue" : "text-black"
+              className={`transition-colors hover:text-apple-blue-hover ${
+                isActive("/sobre") ? "text-apple-blue-hover" : "text-black"
               }`}
             >
               Sobre
@@ -81,8 +81,8 @@ export const Navbar = () => {
 
             <Link
               to="/contato"
-              className={`transition-colors hover:text-apple-blue ${
-                isActive("/contato") ? "text-apple-blue" : "text-black"
+              className={`transition-colors hover:text-apple-blue-hover ${
+                isActive("/contato") ? "text-apple-blue-hover" : "text-black"
               }`}
             >
               Contato
@@ -112,19 +112,19 @@ export const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
+              <Link to="/" className="hover:text-apple-blue-hover transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Home
               </Link>
-              <Link to="/produtos" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
+              <Link to="/produtos" className="hover:text-apple-blue-hover transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Produtos
               </Link>
-              <Link to="/membros" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
+              <Link to="/membros" className="hover:text-apple-blue-hover transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Membros
               </Link>
-              <Link to="/sobre" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
+              <Link to="/sobre" className="hover:text-apple-blue-hover transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Sobre
               </Link>
-              <Link to="/contato" className="hover:text-apple-blue transition-colors text-black" onClick={() => setIsOpen(false)}>
+              <Link to="/contato" className="hover:text-apple-blue-hover transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Contato
               </Link>
               <a

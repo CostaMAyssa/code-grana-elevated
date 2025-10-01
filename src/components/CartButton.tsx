@@ -71,7 +71,7 @@ export const CartButton = () => {
                     />
                     <div className="flex-1">
                       <h4 className="font-semibold">{item.name}</h4>
-                      <p className="text-accent font-bold">
+                      <p className="text-apple-blue-hover font-bold">
                         R$ {item.price.toFixed(2)}
                       </p>
                     </div>
@@ -88,7 +88,7 @@ export const CartButton = () => {
               <div className="border-t border-border pt-4 mt-4">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-lg font-semibold">Total:</span>
-                  <span className="text-2xl font-bold text-accent">
+                  <span className="text-2xl font-bold text-apple-blue-hover">
                     R$ {total.toFixed(2)}
                   </span>
                 </div>

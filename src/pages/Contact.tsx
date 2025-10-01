@@ -60,7 +60,7 @@ export default function Contact() {
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Fale Conosco
           </h1>
-          <p className="text-xl text-accent font-medium">
+          <p className="text-xl text-apple-blue-hover font-medium">
             Estamos aqui para ajudar você
           </p>
         </div>
@@ -131,8 +131,8 @@ export default function Contact() {
               <h2 className="text-2xl font-bold mb-6">Outros Canais</h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MessageSquare className="w-6 h-6 text-accent-foreground" />
+                  <div className="w-12 h-12 bg-apple-blue-hover rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MessageSquare className="w-6 h-6 text-apple-blue-hover-foreground" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">WhatsApp / Telegram</h3>
@@ -141,7 +141,7 @@ export default function Contact() {
                     </p>
                     <a
                       href="https://wa.me/5548998463846"
-                      className="text-accent hover:underline"
+                      className="text-apple-blue-hover hover:underline"
                     >
                       (48) 99846-3846
                     </a>
@@ -149,8 +149,8 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-accent-foreground" />
+                  <div className="w-12 h-12 bg-apple-blue-hover rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-apple-blue-hover-foreground" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
@@ -159,7 +159,7 @@ export default function Contact() {
                     </p>
                     <a
                       href="mailto:contato@codegrana.com.br"
-                      className="text-accent hover:underline"
+                      className="text-apple-blue-hover hover:underline"
                     >
                       contato@codegrana.com.br
                     </a>
@@ -167,8 +167,8 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-accent-foreground" />
+                  <div className="w-12 h-12 bg-apple-blue-hover rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-apple-blue-hover-foreground" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Horário de Atendimento</h3>
@@ -212,7 +212,7 @@ export default function Contact() {
                 value={`item-${index}`}
                 className="bg-card rounded-lg px-6 shadow-card"
               >
-                <AccordionTrigger className="text-left font-semibold hover:text-accent">
+                <AccordionTrigger className="text-left font-semibold hover:text-apple-blue-hover">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">

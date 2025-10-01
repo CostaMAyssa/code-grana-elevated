@@ -22,15 +22,15 @@ All colors MUST be HSL.
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
 
-    /* Azul Apple #007AFF para acentos e CTAs */
-    --secondary: 210 100% 50%;
+    /* Cor escura da Apple #1D1D1F para acentos e CTAs */
+    --secondary: 240 5% 11%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 53%;
 
-    /* Azul Apple para destaques e CTAs */
-    --accent: 210 100% 50%;
+    /* Cor escura da Apple para destaques e CTAs */
+    --accent: 240 5% 11%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -38,17 +38,18 @@ All colors MUST be HSL.
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 210 100% 50%;
+    --ring: 240 5% 11%;
 
     --radius: 0.75rem;
 
-    /* Cores específicas da Apple */
-    --apple-blue: 210 100% 50%;        /* #007AFF */
-    --apple-gray: 0 0% 53%;            /* #86868B */
-    --apple-gray-light: 0 0% 60%;      /* #999999 */
-    --apple-gray-dark: 0 0% 45%;       /* #6D6D72 */
-    --apple-black: 0 0% 0%;            /* #000000 */
-    --apple-white: 0 0% 100%;          /* #FFFFFF */
+  /* Cores específicas da Apple */
+  --apple-blue: 210 100% 50%;        /* #007AFF */
+  --apple-blue-hover: 240 5% 11%;    /* #1D1D1F - cor exata da Apple para hover */
+  --apple-gray: 0 0% 53%;            /* #86868B */
+  --apple-gray-light: 0 0% 60%;      /* #999999 */
+  --apple-gray-dark: 0 0% 45%;       /* #6D6D72 */
+  --apple-black: 0 0% 0%;            /* #000000 */
+  --apple-white: 0 0% 100%;          /* #FFFFFF */
 
     /* Gradientes e sombras premium */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.6), hsl(0 0% 0% / 0.8));
@@ -74,13 +75,13 @@ All colors MUST be HSL.
     --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 100% 50%;
+    --secondary: 240 5% 11%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 10%;
     --muted-foreground: 0 0% 53%;
 
-    --accent: 210 100% 50%;
+    --accent: 240 5% 11%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -88,7 +89,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 210 100% 50%;
+    --ring: 240 5% 11%;
   }
 }
 
@@ -138,6 +139,10 @@ All colors MUST be HSL.
   /* Classes utilitárias para as cores da Apple */
   .text-apple-blue {
     color: hsl(var(--apple-blue));
+  }
+
+  .hover\:text-apple-blue:hover {
+    color: hsl(var(--apple-blue-hover));
   }
 
   .bg-apple-blue {
