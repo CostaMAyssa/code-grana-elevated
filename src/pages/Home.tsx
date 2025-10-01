@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Zap, Shield, Gift, FileCheck, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-video-poster.jpg";
 import cardBackgroundImage from "@/img/imgcards/pexels-pixabay-247676.jpg";
+import timeBackgroundImage from "@/img/imgcards/pexels-ivan-samkov-7703268.jpg";
+import installationBackgroundImage from "@/img/imgcards/pexels-divinetechygirl-1181675.jpg";
 
 export default function Home() {
   return (
@@ -49,80 +51,68 @@ export default function Home() {
         </div>
 
         {/* Economia de Tempo */}
-        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+        <div className="relative h-[50vh] flex items-center justify-center overflow-hidden mb-20">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${cardBackgroundImage})` }}
+            style={{ backgroundImage: `url(${timeBackgroundImage})` }}
           />
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <Zap className="w-12 h-12 text-white" />
-            </div>
-            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+          <div className="absolute inset-0 bg-gray-500/30" />
+          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h3 className="text-6xl md:text-8xl font-bold mb-8 text-gray-800 drop-shadow-lg">
               Economia de Tempo
             </h3>
-            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
+            <p className="text-3xl md:text-4xl text-gray-700 drop-shadow-md max-w-4xl mx-auto leading-relaxed">
               Reduza meses de desenvolvimento para dias com nossos códigos prontos
             </p>
           </div>
         </div>
 
-        {/* Suporte Premium */}
-        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+        {/* Instalação e Configuração */}
+        <div className="relative h-[50vh] flex items-center justify-center overflow-hidden mb-20">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${cardBackgroundImage})` }}
+            style={{ backgroundImage: `url(${installationBackgroundImage})` }}
           />
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <Shield className="w-12 h-12 text-white" />
-            </div>
-            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
-              Suporte Premium
+          <div className="absolute inset-0 bg-gray-500/30" />
+          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h3 className="text-6xl md:text-8xl font-bold mb-8 text-gray-800 drop-shadow-lg">
+              Instalação e Configuração
             </h3>
-            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
-              Assistência técnica especializada via Discord e WhatsApp
+            <p className="text-3xl md:text-4xl text-gray-700 drop-shadow-md max-w-4xl mx-auto leading-relaxed">
+              Contrate nossa equipe para instalar e configurar seus projetos
             </p>
           </div>
         </div>
 
         {/* Atualizações Grátis */}
-        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+        <div className="relative h-[50vh] flex items-center justify-center overflow-hidden mb-20">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${cardBackgroundImage})` }}
           />
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <Gift className="w-12 h-12 text-white" />
-            </div>
-            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+          <div className="absolute inset-0 bg-gray-500/30" />
+          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h3 className="text-6xl md:text-8xl font-bold mb-8 text-gray-800 drop-shadow-lg">
               Atualizações Grátis
             </h3>
-            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
+            <p className="text-3xl md:text-4xl text-gray-700 drop-shadow-md max-w-4xl mx-auto leading-relaxed">
               Membros recebem updates exclusivos e novos recursos
             </p>
           </div>
         </div>
 
         {/* Licenças Oficiais */}
-        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+        <div className="relative h-[50vh] flex items-center justify-center overflow-hidden mb-20">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${cardBackgroundImage})` }}
           />
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <FileCheck className="w-12 h-12 text-white" />
-            </div>
-            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+          <div className="absolute inset-0 bg-gray-500/30" />
+          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h3 className="text-6xl md:text-8xl font-bold mb-8 text-gray-800 drop-shadow-lg">
               Licenças Oficiais
             </h3>
-            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
+            <p className="text-3xl md:text-4xl text-gray-700 drop-shadow-md max-w-4xl mx-auto leading-relaxed">
               Todos os produtos com documentação completa e legal
             </p>
           </div>
