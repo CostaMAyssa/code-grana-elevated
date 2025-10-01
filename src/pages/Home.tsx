@@ -1,25 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Zap, Shield, Gift, FileCheck, ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-video-poster.jpg";
+import VideoBackground from "@/components/VideoBackground";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section com vídeo de fundo */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background (usando imagem como poster) */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroImage}
-            alt="Hero background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-        </div>
-
+      <VideoBackground className="h-screen flex items-center justify-center overflow-hidden">
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fade-in-up">
+        <div className="text-center px-4 max-w-5xl mx-auto animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Marketplace líder em código fonte
             <br />
@@ -42,7 +32,7 @@ export default function Home() {
             <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse" />
           </div>
         </div>
-      </section>
+      </VideoBackground>
 
       {/* Benefícios Section */}
       <section className="py-20 bg-background">
