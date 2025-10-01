@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Zap, Shield, Gift, FileCheck, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-video-poster.jpg";
+import cardBackgroundImage from "@/img/imgcards/pexels-pixabay-247676.jpg";
 
 export default function Home() {
   return (
@@ -36,53 +37,94 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefícios Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Por que escolher a <span className="text-apple-blue-hover">CodeGrana</span>?
-            </h2>
-            <p className="text-xl text-contrast">
-              Desenvolvimento profissional ao seu alcance
+      {/* Benefícios Section - Estilo Apple */}
+      <section className="py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Por que escolher a <span className="text-apple-blue-hover">CodeGrana</span>?
+          </h2>
+          <p className="text-xl text-contrast">
+            Desenvolvimento profissional ao seu alcance
+          </p>
+        </div>
+
+        {/* Economia de Tempo */}
+        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${cardBackgroundImage})` }}
+          />
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
+              <Zap className="w-12 h-12 text-white" />
+            </div>
+            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+              Economia de Tempo
+            </h3>
+            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
+              Reduza meses de desenvolvimento para dias com nossos códigos prontos
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Zap,
-                title: "Economia de Tempo",
-                description: "Reduza meses de desenvolvimento para dias com nossos códigos prontos",
-              },
-              {
-                icon: Shield,
-                title: "Suporte Premium",
-                description: "Assistência técnica especializada via Discord e WhatsApp",
-              },
-              {
-                icon: Gift,
-                title: "Atualizações Grátis",
-                description: "Membros recebem updates exclusivos e novos recursos",
-              },
-              {
-                icon: FileCheck,
-                title: "Licenças Oficiais",
-                description: "Todos os produtos com documentação completa e legal",
-              },
-            ].map((benefit, index) => (
-              <div
-                key={index}
-                className="bg-card p-8 rounded-xl shadow-card-dark hover:shadow-card-hover-dark transition-all duration-300 hover:-translate-y-2 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center mb-6">
-                  <benefit.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-                <p className="text-contrast">{benefit.description}</p>
-              </div>
-            ))}
+        {/* Suporte Premium */}
+        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${cardBackgroundImage})` }}
+          />
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
+              <Shield className="w-12 h-12 text-white" />
+            </div>
+            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+              Suporte Premium
+            </h3>
+            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
+              Assistência técnica especializada via Discord e WhatsApp
+            </p>
+          </div>
+        </div>
+
+        {/* Atualizações Grátis */}
+        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${cardBackgroundImage})` }}
+          />
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
+              <Gift className="w-12 h-12 text-white" />
+            </div>
+            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+              Atualizações Grátis
+            </h3>
+            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
+              Membros recebem updates exclusivos e novos recursos
+            </p>
+          </div>
+        </div>
+
+        {/* Licenças Oficiais */}
+        <div className="relative h-screen flex items-center justify-center overflow-hidden mb-20">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${cardBackgroundImage})` }}
+          />
+          <div className="absolute inset-0 bg-black/20" />
+          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div className="w-24 h-24 bg-black/80 rounded-2xl flex items-center justify-center mx-auto mb-8">
+              <FileCheck className="w-12 h-12 text-white" />
+            </div>
+            <h3 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+              Licenças Oficiais
+            </h3>
+            <p className="text-2xl md:text-3xl text-white/90 drop-shadow-md max-w-3xl mx-auto">
+              Todos os produtos com documentação completa e legal
+            </p>
           </div>
         </div>
       </section>
