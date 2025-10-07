@@ -16,13 +16,13 @@ export const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full bg-white text-black z-50 shadow-sm">
+    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-xl z-50 border-b border-gray-100" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold">
-              Code<span className="text-apple-blue-hover">Grana</span>
+            <span className="text-xl font-semibold tracking-tight" style={{ color: '#0D0D1A' }}>
+              Code<span style={{ color: '#0D0D1A' }}>Grana</span>
             </span>
           </Link>
 
@@ -30,15 +30,14 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className={`transition-colors hover:text-apple-blue-hover ${
-                isActive("/") ? "text-apple-blue-hover" : "text-black"
-              }`}
+              className="font-medium transition-all duration-300 hover:opacity-70"
+              style={{ color: isActive("/") ? '#0D0D1A' : '#6e6e73' }}
             >
               Home
             </Link>
 
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 transition-colors hover:text-apple-blue-hover text-black">
+              <DropdownMenuTrigger className="flex items-center space-x-1 font-medium transition-all duration-300 hover:opacity-70" style={{ color: '#6e6e73' }}>
                 <span>Produtos</span>
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
@@ -63,27 +62,24 @@ export const Navbar = () => {
 
             <Link
               to="/membros"
-              className={`transition-colors hover:text-apple-blue-hover ${
-                isActive("/membros") ? "text-apple-blue-hover" : "text-black"
-              }`}
+              className="font-medium transition-all duration-300 hover:opacity-70"
+              style={{ color: isActive("/membros") ? '#0D0D1A' : '#6e6e73' }}
             >
               Membros
             </Link>
 
             <Link
               to="/sobre"
-              className={`transition-colors hover:text-apple-blue-hover ${
-                isActive("/sobre") ? "text-apple-blue-hover" : "text-black"
-              }`}
+              className="font-medium transition-all duration-300 hover:opacity-70"
+              style={{ color: isActive("/sobre") ? '#0D0D1A' : '#6e6e73' }}
             >
               Sobre
             </Link>
 
             <Link
               to="/contato"
-              className={`transition-colors hover:text-apple-blue-hover ${
-                isActive("/contato") ? "text-apple-blue-hover" : "text-black"
-              }`}
+              className="font-medium transition-all duration-300 hover:opacity-70"
+              style={{ color: isActive("/contato") ? '#0D0D1A' : '#6e6e73' }}
             >
               Contato
             </Link>
@@ -92,7 +88,8 @@ export const Navbar = () => {
               href="https://wa.me/5511999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md"
+              className="bg-[#0D0D1A] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#111122] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-300"
+              style={{ letterSpacing: '0.03em' }}
             >
               WhatsApp
             </a>
