@@ -17,7 +17,7 @@ export default function Home() {
         <div 
           className="absolute inset-0" 
           style={{ 
-            background: 'radial-gradient(circle at 50% 40%, #f1f5f9 0%, #e2e8f0 60%, #cbd5e1 100%)' 
+            background: 'radial-gradient(circle at 50% 40%, #e2e8f0 0%, #cbd5e1 60%, #94a3b8 100%)' 
           }} 
         />
         
@@ -48,7 +48,7 @@ export default function Home() {
             style={{ letterSpacing: '0.03em' }}
           >
             Explorar Produtos
-          </Link>
+              </Link>
         </div>
       </section>
 

@@ -32,9 +32,9 @@ export const CartButton = () => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="golden"
+          variant="default"
           size="icon"
-          className="fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-golden z-40"
+          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-black hover:bg-gray-800 text-white shadow-lg z-40"
         >
           <ShoppingCart className="w-6 h-6" />
           {cartItems.length > 0 && (
