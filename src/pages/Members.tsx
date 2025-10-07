@@ -121,9 +121,9 @@ export default function Members() {
 
                 {/* CTA Button */}
                 <Button
-                  variant={tier.popular ? "golden" : "premium"}
+                  variant="default"
                   size="lg"
-                  className="w-full"
+                  className="w-full bg-black hover:bg-gray-800 text-white"
                   asChild
                 >
                   <a href="#checkout">Assine Agora</a>

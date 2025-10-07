@@ -92,7 +92,7 @@ export const CartButton = () => {
                     R$ {total.toFixed(2)}
                   </span>
                 </div>
-                <Button variant="golden" size="lg" className="w-full">
+                <Button variant="default" size="lg" className="w-full bg-black hover:bg-gray-800 text-white">
                   Finalizar Compra
                 </Button>
               </div>

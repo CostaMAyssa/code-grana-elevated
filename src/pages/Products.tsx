@@ -160,7 +160,8 @@ export default function Products() {
                     R$ {product.price}
                   </span>
                   <Button
-                    variant="golden"
+                    variant="default"
+                    className="bg-black hover:bg-gray-800 text-white"
                     onClick={() => addToCart(product)}
                   >
                     <ShoppingCart className="w-4 h-4 mr-2" />
@@ -180,7 +181,7 @@ export default function Products() {
           <p className="text-xl mb-6 text-muted-foreground">
             Torne-se um membro e economize até 40% em produtos premium
           </p>
-          <Button variant="golden" size="lg" asChild>
+          <Button variant="default" size="lg" className="bg-black hover:bg-gray-800 text-white" asChild>
             <a href="/membros">Ver Planos de Membership</a>
           </Button>
         </div>
