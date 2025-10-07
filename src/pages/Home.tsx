@@ -17,7 +17,7 @@ export default function Home() {
         <div 
           className="absolute inset-0" 
           style={{ 
-            background: 'radial-gradient(circle at 50% 40%, #ffffff 0%, #f7f8fa 60%, #f3f4f6 100%)' 
+            background: 'radial-gradient(circle at 50% 40%, #f1f5f9 0%, #e2e8f0 60%, #cbd5e1 100%)' 
           }} 
         />
         
