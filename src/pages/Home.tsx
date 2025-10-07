@@ -11,33 +11,26 @@ import licensesBackgroundImage from "@/img/imgcards/pexels-fotios-photos-3473411
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section com vídeo de fundo */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Hero Background */}
-        <div className="absolute inset-0 z-0 bg-background" />
-        <div className="absolute inset-0 z-0 bg-gray-200/40" />
+      {/* Hero Section - Apple-inspired minimalist design */}
+      <section className="relative flex items-center justify-center overflow-hidden px-8" style={{ height: '90vh' }}>
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--hero-gradient-from))] to-[hsl(var(--hero-gradient-to))]" />
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fade-in-up">
-          <h1 className="text-5xl md:text-7xl font-bold text-contrast-dark mb-6 leading-tight">
-            Marketplace líder em código fonte
-            <br />
-            <span className="text-apple-blue-hover">premium no Brasil</span>
+        <div className="relative z-10 text-center max-w-[850px] mx-auto animate-fade-up">
+          <h1 className="text-[clamp(2.8rem,6vw,4.5rem)] font-semibold tracking-tight leading-[1.1] mb-5" style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}>
+            Marketplace líder em código fonte premium no Brasil
           </h1>
-          <p className="text-xl md:text-2xl text-contrast mb-8 font-medium">
+          <p className="text-[1.3rem] mt-5 mb-10" style={{ color: '#6e6e73' }}>
             Acelere seus projetos com automação e IA
           </p>
-              <Link to="/produtos" className="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md">
-                Explore Nossos Produtos
-                <ArrowRight className="ml-3 w-5 h-5" />
-              </Link>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-apple-blue-hover rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-apple-blue-hover rounded-full mt-2 animate-pulse" />
-          </div>
+          <Link 
+            to="/produtos" 
+            className="inline-block bg-[#0D0D1A] text-white px-8 py-3.5 rounded-full font-medium transition-all duration-300 hover:bg-[#111122] hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)]"
+            style={{ letterSpacing: '0.03em' }}
+          >
+            Explorar Produtos
+          </Link>
         </div>
       </section>
 

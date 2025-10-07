@@ -42,6 +42,10 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
+  /* Hero gradient - Apple-inspired subtle gradient */
+  --hero-gradient-from: 0 0% 98%;
+  --hero-gradient-to: 220 9% 97%;
+
   /* Cores específicas da Apple */
   --apple-blue: 210 100% 50%;        /* #007AFF */
   --apple-blue-hover: 240 5% 11%;    /* #1D1D1F - cor exata da Apple para hover */
@@ -223,5 +227,21 @@ All colors MUST be HSL.
 
   .shadow-card-hover-dark {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Apple-inspired hero fade-up animation */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 1s ease forwards;
   }
 }
