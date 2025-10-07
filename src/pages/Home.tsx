@@ -13,8 +13,26 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section - Apple-inspired minimalist design */}
       <section className="relative flex items-center justify-center overflow-hidden px-8" style={{ height: '90vh' }}>
-        {/* Subtle gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--hero-gradient-from))] to-[hsl(var(--hero-gradient-to))]" />
+        {/* Radial gradient background with soft glow effect */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: 'radial-gradient(circle at 50% 40%, #ffffff 0%, #f7f8fa 60%, #f3f4f6 100%)' 
+          }} 
+        />
+        
+        {/* Animated subtle glow */}
+        <div 
+          className="absolute hero-glow pointer-events-none"
+          style={{
+            top: '-50%',
+            left: '-50%',
+            width: '200%',
+            height: '200%',
+            background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4), transparent 70%)',
+            zIndex: 0
+          }}
+        />
 
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-[850px] mx-auto animate-fade-up">

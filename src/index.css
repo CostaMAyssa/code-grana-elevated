@@ -244,4 +244,18 @@ All colors MUST be HSL.
   .animate-fade-up {
     animation: fadeUp 1s ease forwards;
   }
+
+  /* Apple-style subtle glow animation */
+  @keyframes moveGlow {
+    0% { 
+      transform: translate(0, 0); 
+    }
+    100% { 
+      transform: translate(10%, 10%); 
+    }
+  }
+
+  .hero-glow {
+    animation: moveGlow 15s ease-in-out infinite alternate;
+  }
 }
