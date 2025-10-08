@@ -62,13 +62,22 @@ export default function Members() {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          <h1 
+            className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight mb-4"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Junte-se à Comunidade CodeGrana
           </h1>
-          <p className="text-xl text-apple-blue-hover font-medium mb-2">
+          <p 
+            className="text-[1.2rem] mb-2"
+            style={{ color: '#6e6e73' }}
+          >
             Leve sua automação para outro nível
           </p>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p 
+            className="text-[1rem] max-w-2xl mx-auto"
+            style={{ color: '#6e6e73' }}
+          >
             Acesse conteúdo exclusivo, suporte premium e descubra uma comunidade
             apaixonada por desenvolvimento
           </p>
@@ -101,12 +110,20 @@ export default function Members() {
                 </div>
 
                 {/* Tier name and price */}
-                <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                <h3 
+                  className="text-[1.6rem] font-semibold tracking-tight mb-2"
+                  style={{ letterSpacing: '-0.01em', color: '#0D0D1A' }}
+                >
+                  {tier.name}
+                </h3>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-apple-blue-hover">
+                  <span 
+                    className="text-[2.5rem] font-semibold"
+                    style={{ color: '#0D0D1A' }}
+                  >
                     R$ {tier.price.toFixed(2)}
                   </span>
-                  <span className="text-muted-foreground">/mês</span>
+                  <span style={{ color: '#6e6e73' }}>/mês</span>
                 </div>
 
                 {/* Features list */}
@@ -123,7 +140,8 @@ export default function Members() {
                 <Button
                   variant="default"
                   size="lg"
-                  className="w-full bg-black hover:bg-gray-800 text-white"
+                  className="w-full bg-[#0D0D1A] hover:bg-[#111122] text-white"
+                  style={{ letterSpacing: '0.03em' }}
                   asChild
                 >
                   <a href="#checkout">Assine Agora</a>
@@ -134,8 +152,11 @@ export default function Members() {
         </div>
 
         {/* Video Tutorials Section */}
-        <div className="bg-muted rounded-xl p-8 md:p-12 mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        <div className="bg-[#f8f9fb] rounded-xl p-8 md:p-12 mb-16 animate-fade-in">
+          <h2 
+            className="text-[clamp(1.8rem,3vw,2.5rem)] font-semibold tracking-tight mb-8 text-center"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Tutoriais Exclusivos para Membros
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -168,20 +189,35 @@ export default function Members() {
         </div>
 
         {/* Discord CTA */}
-        <div className="bg-primary text-primary-foreground rounded-xl p-8 md:p-12 text-center animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="bg-[#f8f9fb] rounded-xl p-8 md:p-12 text-center animate-fade-in">
+          <h2 
+            className="text-[clamp(1.8rem,3vw,2.5rem)] font-semibold tracking-tight mb-4"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Pronto para começar?
           </h2>
-          <p className="text-xl mb-8 text-muted-foreground">
+          <p 
+            className="text-[1.2rem] mb-8"
+            style={{ color: '#6e6e73' }}
+          >
             Escolha seu plano e ganhe acesso imediato à comunidade
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="golden" size="lg" asChild>
+            <Button 
+              variant="default" 
+              size="lg" 
+              className="bg-[#0D0D1A] hover:bg-[#111122] text-white"
+              style={{ letterSpacing: '0.03em' }}
+              asChild
+            >
               <a href="https://discord.gg/codegrana" target="_blank" rel="noopener noreferrer">
                 Entrar no Discord
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="bg-transparent text-white border-white hover:bg-white hover:text-primary">
+            <Button 
+              variant="outline" 
+              size="lg"
+            >
               Ver FAQ
             </Button>
           </div>

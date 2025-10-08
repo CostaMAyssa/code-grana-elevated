@@ -6,25 +6,44 @@ export default function About() {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Sobre a CodeGrana</h1>
-          <p className="text-xl text-apple-blue-hover font-medium max-w-3xl mx-auto">
+          <h1 
+            className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight mb-4"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
+            Sobre a CodeGrana
+          </h1>
+          <p 
+            className="text-[1.2rem] max-w-3xl mx-auto"
+            style={{ color: '#6e6e73' }}
+          >
             Democratizando o desenvolvimento rápido com IA e automação no Brasil
           </p>
         </div>
 
         {/* Mission */}
         <div className="max-w-4xl mx-auto mb-20 animate-fade-in">
-          <div className="bg-card rounded-xl p-8 md:p-12 shadow-card">
-            <h2 className="text-3xl font-bold mb-6">Nossa Missão</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              A <span className="text-apple-blue-hover font-semibold">CodeGrana</span> nasceu com o
+          <div className="bg-white rounded-xl p-8 md:p-12 shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+            <h2 
+              className="text-[1.8rem] font-semibold tracking-tight mb-6"
+              style={{ letterSpacing: '-0.01em', color: '#0D0D1A' }}
+            >
+              Nossa Missão
+            </h2>
+            <p 
+              className="text-[1.1rem] leading-relaxed mb-4"
+              style={{ color: '#6e6e73' }}
+            >
+              A <span style={{ color: '#0D0D1A', fontWeight: 600 }}>CodeGrana</span> nasceu com o
               propósito de revolucionar a forma como desenvolvedores e empresas constroem
               soluções digitais no Brasil. Acreditamos que código de qualidade não deve
               ser um privilégio, mas sim uma ferramenta acessível para todos que desejam
               transformar ideias em realidade.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Como <strong>marketplace líder em código fonte premium</strong>, oferecemos
+            <p 
+              className="text-[1.1rem] leading-relaxed"
+              style={{ color: '#6e6e73' }}
+            >
+              Como <strong style={{ color: '#0D0D1A' }}>marketplace líder em código fonte premium</strong>, oferecemos
               soluções prontas que economizam meses de desenvolvimento, com foco especial
               em automação e inteligência artificial - as tecnologias que estão moldando
               o futuro.
@@ -56,7 +75,10 @@ export default function About() {
 
         {/* Values */}
         <div className="mb-20 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 
+            className="text-[clamp(1.8rem,3vw,2.5rem)] font-semibold tracking-tight text-center mb-12"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Nossos Valores
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -90,8 +112,13 @@ export default function About() {
         </div>
 
         {/* Trust Badges */}
-        <div className="bg-primary text-primary-foreground rounded-xl p-8 md:p-12 text-center animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Compromisso com Você</h2>
+        <div className="bg-[#f8f9fb] rounded-xl p-8 md:p-12 text-center animate-fade-in">
+          <h2 
+            className="text-[clamp(1.8rem,3vw,2.5rem)] font-semibold tracking-tight mb-8"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
+            Compromisso com Você
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center">
               <Shield className="w-12 h-12 text-apple-blue-hover mb-4" />

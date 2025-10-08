@@ -57,10 +57,16 @@ export default function Contact() {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          <h1 
+            className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight mb-4"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Fale Conosco
           </h1>
-          <p className="text-xl text-apple-blue-hover font-medium">
+          <p 
+            className="text-[1.2rem]"
+            style={{ color: '#6e6e73' }}
+          >
             Estamos aqui para ajudar você
           </p>
         </div>
@@ -68,8 +74,13 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Contact Form */}
           <div className="animate-fade-in">
-            <div className="bg-card rounded-xl p-8 shadow-card">
-              <h2 className="text-2xl font-bold mb-6">Envie uma Mensagem</h2>
+            <div className="bg-white rounded-xl p-8 shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+              <h2 
+                className="text-[1.6rem] font-semibold tracking-tight mb-6"
+                style={{ letterSpacing: '-0.01em', color: '#0D0D1A' }}
+              >
+                Envie uma Mensagem
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">
@@ -118,7 +129,13 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button type="submit" variant="golden" size="lg" className="w-full">
+                <Button 
+                  type="submit" 
+                  variant="default" 
+                  size="lg" 
+                  className="w-full bg-[#0D0D1A] hover:bg-[#111122] text-white"
+                  style={{ letterSpacing: '0.03em' }}
+                >
                   Enviar Mensagem
                 </Button>
               </form>
@@ -127,8 +144,13 @@ export default function Contact() {
 
           {/* Contact Info */}
           <div className="space-y-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <div className="bg-card rounded-xl p-8 shadow-card">
-              <h2 className="text-2xl font-bold mb-6">Outros Canais</h2>
+            <div className="bg-white rounded-xl p-8 shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+              <h2 
+                className="text-[1.6rem] font-semibold tracking-tight mb-6"
+                style={{ letterSpacing: '-0.01em', color: '#0D0D1A' }}
+              >
+                Outros Canais
+              </h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-apple-blue-hover rounded-lg flex items-center justify-center flex-shrink-0">
@@ -182,12 +204,26 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-primary text-primary-foreground rounded-xl p-8 shadow-card">
-              <h3 className="text-xl font-bold mb-4">Discord Community</h3>
-              <p className="text-muted-foreground mb-6">
+            <div className="bg-[#f8f9fb] rounded-xl p-8 shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+              <h3 
+                className="text-[1.4rem] font-semibold tracking-tight mb-4"
+                style={{ letterSpacing: '-0.01em', color: '#0D0D1A' }}
+              >
+                Discord Community
+              </h3>
+              <p 
+                className="text-[1rem] mb-6"
+                style={{ color: '#6e6e73' }}
+              >
                 Junte-se a mais de 5.000 desenvolvedores na nossa comunidade
               </p>
-              <Button variant="golden" size="lg" className="w-full" asChild>
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="w-full bg-[#0D0D1A] hover:bg-[#111122] text-white"
+                style={{ letterSpacing: '0.03em' }}
+                asChild
+              >
                 <a
                   href="https://discord.gg/codegrana"
                   target="_blank"
@@ -202,7 +238,10 @@ export default function Contact() {
 
         {/* FAQ Section */}
         <div className="max-w-3xl mx-auto animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 
+            className="text-[clamp(1.8rem,3vw,2.5rem)] font-semibold tracking-tight text-center mb-12"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Perguntas Frequentes
           </h2>
           <Accordion type="single" collapsible className="space-y-4">
