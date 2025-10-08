@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Play, Filter } from "lucide-react";
 import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
 import productN8N from "@/assets/product-n8n.jpg";
 import productERP from "@/assets/product-erp.jpg";
 import productDelivery from "@/assets/product-delivery.jpg";
@@ -68,6 +69,7 @@ const products: Product[] = [
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const { addItem } = useCart();
 
   const filteredProducts =
     selectedCategory === "all"
@@ -75,6 +77,12 @@ export default function Products() {
       : products.filter((p) => p.category === selectedCategory);
 
   const addToCart = (product: Product) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    });
     toast.success(`${product.name} adicionado ao carrinho!`);
   };
 
