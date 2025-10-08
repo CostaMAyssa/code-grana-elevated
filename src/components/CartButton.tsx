@@ -21,9 +21,8 @@ export const CartButton = () => {
   };
 
   const handleCheckout = () => {
-    toast.success("Redirecionando para pagamento...");
     closeCart();
-    // Aqui você pode adicionar a navegação para página de pagamento
+    navigate("/checkout");
   };
 
   const handleContinueShopping = () => {

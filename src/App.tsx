@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer";
 import { CartButton } from "./components/CartButton";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import Checkout from "./pages/Checkout";
 import Members from "./pages/Members";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -24,15 +25,16 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/produtos" element={<Products />} />
-            <Route path="/membros" element={<Members />} />
-            <Route path="/sobre" element={<About />} />
-            <Route path="/contato" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/produtos" element={<Products />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/membros" element={<Members />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/contato" element={<Contact />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
           <Footer />
           <CartButton />
         </BrowserRouter>
