@@ -83,10 +83,16 @@ export default function Products() {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          <h1 
+            className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-tight mb-4"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Confira Nossos Produtos
           </h1>
-          <p className="text-xl text-apple-blue-hover font-medium">
+          <p 
+            className="text-[1.2rem]"
+            style={{ color: '#6e6e73' }}
+          >
             Soluções prontas para automação e IA
           </p>
         </div>
@@ -143,8 +149,18 @@ export default function Products() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                <p className="text-muted-foreground mb-4">{product.description}</p>
+                <h3 
+                  className="text-[1.4rem] font-semibold tracking-tight mb-2"
+                  style={{ letterSpacing: '-0.01em', color: '#0D0D1A' }}
+                >
+                  {product.name}
+                </h3>
+                <p 
+                  className="text-[1rem] mb-4"
+                  style={{ color: '#6e6e73' }}
+                >
+                  {product.description}
+                </p>
 
                 <ul className="space-y-2 mb-6">
                   {product.features.map((feature, idx) => (
@@ -156,12 +172,16 @@ export default function Products() {
                 </ul>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-apple-blue-hover">
+                  <span 
+                    className="text-[2rem] font-semibold"
+                    style={{ color: '#0D0D1A' }}
+                  >
                     R$ {product.price}
                   </span>
                   <Button
                     variant="default"
-                    className="bg-black hover:bg-gray-800 text-white"
+                    className="bg-[#0D0D1A] hover:bg-[#111122] text-white"
+                    style={{ letterSpacing: '0.03em' }}
                     onClick={() => addToCart(product)}
                   >
                     <ShoppingCart className="w-4 h-4 mr-2" />
@@ -174,14 +194,26 @@ export default function Products() {
         </div>
 
         {/* Upsell Section */}
-        <div className="mt-16 bg-primary text-primary-foreground rounded-xl p-8 md:p-12 text-center animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="mt-16 bg-[#f8f9fb] rounded-xl p-8 md:p-12 text-center animate-fade-in">
+          <h2 
+            className="text-[clamp(1.8rem,3vw,2.5rem)] font-semibold tracking-tight mb-4"
+            style={{ letterSpacing: '-0.02em', color: '#0D0D1A' }}
+          >
             Quer acesso a todos os produtos?
           </h2>
-          <p className="text-xl mb-6 text-muted-foreground">
+          <p 
+            className="text-[1.2rem] mb-6"
+            style={{ color: '#6e6e73' }}
+          >
             Torne-se um membro e economize até 40% em produtos premium
           </p>
-          <Button variant="default" size="lg" className="bg-black hover:bg-gray-800 text-white" asChild>
+          <Button 
+            variant="default" 
+            size="lg" 
+            className="bg-[#0D0D1A] hover:bg-[#111122] text-white"
+            style={{ letterSpacing: '0.03em' }}
+            asChild
+          >
             <a href="/membros">Ver Planos de Membership</a>
           </Button>
         </div>
