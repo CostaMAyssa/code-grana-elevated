@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Play, Filter } from "lucide-react";
 import { toast } from "sonner";
@@ -70,6 +71,7 @@ const products: Product[] = [
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const { addItem } = useCart();
+  const navigate = useNavigate();
 
   const filteredProducts =
     selectedCategory === "all"
@@ -142,7 +144,10 @@ export default function Products() {
               className="bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative h-64 overflow-hidden group">
+              <div 
+                className="relative h-64 overflow-hidden group cursor-pointer"
+                onClick={() => navigate(`/produto/${product.id}`)}
+              >
                 <img
                   src={product.image}
                   alt={product.name}
@@ -151,7 +156,7 @@ export default function Products() {
                 <div className="absolute inset-0 bg-apple-gray/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Button variant="golden" size="sm">
                     <Play className="w-4 h-4 mr-2" />
-                    Ver Demo
+                    Ver Detalhes
                   </Button>
                 </div>
               </div>
