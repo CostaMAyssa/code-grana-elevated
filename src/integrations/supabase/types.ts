@@ -14,7 +14,176 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      orders: {
+        Row: {
+          asaas_payment_id: string | null
+          created_at: string | null
+          id: string
+          product_id: string
+          quantity: number | null
+          status: string | null
+          total: number
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          asaas_payment_id?: string | null
+          created_at?: string | null
+          id?: string
+          product_id: string
+          quantity?: number | null
+          status?: string | null
+          total: number
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          asaas_payment_id?: string | null
+          created_at?: string | null
+          id?: string
+          product_id?: string
+          quantity?: number | null
+          status?: string | null
+          total?: number
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      payments: {
+        Row: {
+          asaas_id: string
+          billing_type: string
+          created_at: string | null
+          id: string
+          order_id: string
+          payment_url: string | null
+          processed_at: string | null
+          qr_code_url: string | null
+          status: string
+          updated_at: string | null
+          value: number
+        }
+        Insert: {
+          asaas_id: string
+          billing_type: string
+          created_at?: string | null
+          id?: string
+          order_id: string
+          payment_url?: string | null
+          processed_at?: string | null
+          qr_code_url?: string | null
+          status: string
+          updated_at?: string | null
+          value: number
+        }
+        Update: {
+          asaas_id?: string
+          billing_type?: string
+          created_at?: string | null
+          id?: string
+          order_id?: string
+          payment_url?: string | null
+          processed_at?: string | null
+          qr_code_url?: string | null
+          status?: string
+          updated_at?: string | null
+          value?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string | null
+          features: Json | null
+          file_url: string | null
+          id: string
+          image_url: string | null
+          name: string
+          price: number
+          updated_at: string | null
+          youtube_video_id: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          description?: string | null
+          features?: Json | null
+          file_url?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          price: number
+          updated_at?: string | null
+          youtube_video_id?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          features?: Json | null
+          file_url?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          price?: number
+          updated_at?: string | null
+          youtube_video_id?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          cpf_cnpj: string | null
+          created_at: string | null
+          email: string
+          id: string
+          name: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          cpf_cnpj?: string | null
+          created_at?: string | null
+          email: string
+          id: string
+          name?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          cpf_cnpj?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          name?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
