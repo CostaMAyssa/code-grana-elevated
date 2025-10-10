@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CreditCard, QrCode, FileText, ArrowLeft, ShoppingCart } from "lucide-react";
+import { CreditCard, QrCode, FileText, ArrowLeft, ShoppingCart, CheckCircle, ExternalLink } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 
 const cardSchema = z.object({
   cardNumber: z.string().min(16, "Número do cartão inválido").max(19),
@@ -27,11 +28,25 @@ const boletoSchema = z.object({
 
 type PaymentMethod = "card" | "pix" | "boleto";
 
+// Usando o cliente Supabase configurado
+
+interface PaymentResponse {
+  success: boolean;
+  paymentUrl?: string;
+  qrCode?: string;
+  qrCodeImage?: string;
+  error?: string;
+  orderId?: string;
+  paymentId?: string;
+}
+
 export default function Checkout() {
   const navigate = useNavigate();
-  const { cartItems, total } = useCart();
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("card");
+  const { cartItems, total, clearCart } = useCart();
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("pix");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [paymentData, setPaymentData] = useState<PaymentResponse | null>(null);
+  const [user, setUser] = useState<any>(null);
 
   // Card form
   const [cardNumber, setCardNumber] = useState("");
@@ -46,6 +61,76 @@ export default function Checkout() {
   // Boleto form
   const [boletoCpf, setBoletoCpf] = useState("");
   const [boletoName, setBoletoName] = useState("");
+
+  // Dados do cliente
+  const [customerData, setCustomerData] = useState({
+    name: "",
+    cpfCnpj: "",
+    phone: "",
+    address: "",
+    city: "",
+    state: "",
+    postalCode: "",
+  });
+
+  // Carregar dados do usuário
+  useEffect(() => {
+    const loadUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUser(user);
+        setPixEmail(user.email || "");
+        setPixName(user.user_metadata?.full_name || "");
+        
+        // Buscar dados do perfil
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+        
+        if (profile) {
+          setCustomerData({
+            name: profile.full_name || user.user_metadata?.full_name || "",
+            cpfCnpj: profile.cpf_cnpj || "",
+            phone: profile.phone || "",
+            address: profile.address || "",
+            city: profile.city || "",
+            state: profile.state || "",
+            postalCode: profile.postal_code || "",
+          });
+        }
+      }
+    };
+    
+    loadUser();
+  }, []);
+
+  // Polling para verificar status do pagamento
+  useEffect(() => {
+    if (!paymentData?.paymentId) return;
+
+    const interval = setInterval(async () => {
+      try {
+        const { data: payment } = await supabase
+          .from('payments')
+          .select('status')
+          .eq('asaas_id', paymentData.paymentId)
+          .single();
+
+        if (payment?.status === 'confirmed') {
+          toast.success("Pagamento confirmado! Verifique seu e-mail para o link de download.");
+          clearCart();
+          clearInterval(interval);
+          navigate("/members");
+        }
+      } catch (error) {
+        console.error('Erro ao verificar status:', error);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [paymentData?.paymentId, clearCart, navigate]);
 
   if (cartItems.length === 0) {
     return (
@@ -72,9 +157,16 @@ export default function Checkout() {
   }
 
   const handlePayment = async () => {
+    if (!user) {
+      toast.error("Faça login para continuar");
+      navigate("/login");
+      return;
+    }
+
     setIsProcessing(true);
 
     try {
+      // Validar dados do formulário
       if (paymentMethod === "card") {
         const result = cardSchema.safeParse({ cardNumber, cardName, expiry, cvv });
         if (!result.success) {
@@ -98,12 +190,56 @@ export default function Checkout() {
         }
       }
 
-      // Simular processamento
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Validar CPF/CNPJ
+      if (!customerData.cpfCnpj) {
+        toast.error("CPF/CNPJ é obrigatório para pagamentos");
+        setIsProcessing(false);
+        return;
+      }
 
-      toast.success("Pagamento processado com sucesso!");
-      navigate("/");
+      // Processar cada item do carrinho
+      for (const item of cartItems) {
+        const response = await fetch(`https://ccfumesbuqjpxfuhupxp.supabase.co/functions/v1/asaas-create-payment`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.access_token}`,
+          },
+          body: JSON.stringify({
+            userEmail: user.email,
+            productId: item.id,
+            quantity: item.quantity,
+            billingType: paymentMethod === "card" ? "CREDIT_CARD" : paymentMethod === "pix" ? "PIX" : "BOLETO",
+            customerData: {
+              name: customerData.name || (paymentMethod === "pix" ? pixName : boletoName),
+              cpfCnpj: customerData.cpfCnpj,
+              phone: customerData.phone,
+              address: customerData.address,
+              city: customerData.city,
+              state: customerData.state,
+              postalCode: customerData.postalCode,
+            }
+          }),
+        });
+
+        const result: PaymentResponse = await response.json();
+
+        if (!result.success) {
+          toast.error(result.error || "Erro ao processar pagamento");
+          setIsProcessing(false);
+          return;
+        }
+
+        // Salvar dados do primeiro pagamento para exibição
+        if (!paymentData) {
+          setPaymentData(result);
+        }
+      }
+
+      toast.success("Pagamento criado com sucesso! Siga as instruções abaixo.");
+      
     } catch (error) {
+      console.error('Erro no pagamento:', error);
       toast.error("Erro ao processar pagamento");
     } finally {
       setIsProcessing(false);
@@ -128,6 +264,55 @@ export default function Checkout() {
         >
           Finalizar Compra
         </h1>
+
+        {/* Seção de Pagamento Criado */}
+        {paymentData && (
+          <div className="mb-8 bg-green-50 border border-green-200 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <CheckCircle className="w-6 h-6 text-green-600" />
+              <h3 className="text-lg font-semibold text-green-800">
+                Pagamento Criado com Sucesso!
+              </h3>
+            </div>
+            
+            <div className="space-y-4">
+              {paymentData.paymentUrl && (
+                <div>
+                  <p className="text-sm text-green-700 mb-2">
+                    Clique no botão abaixo para finalizar o pagamento:
+                  </p>
+                  <a
+                    href={paymentData.paymentUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Pagar Agora
+                  </a>
+                </div>
+              )}
+              
+              {paymentData.qrCodeImage && (
+                <div>
+                  <p className="text-sm text-green-700 mb-2">
+                    Ou escaneie o QR Code com seu app de pagamento:
+                  </p>
+                  <img
+                    src={paymentData.qrCodeImage}
+                    alt="QR Code para pagamento"
+                    className="max-w-xs mx-auto border rounded-lg"
+                  />
+                </div>
+              )}
+              
+              <p className="text-xs text-green-600">
+                Após o pagamento, você receberá um e-mail com o link de download.
+                O status será atualizado automaticamente.
+              </p>
+            </div>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Resumo do Pedido */}
@@ -225,6 +410,88 @@ export default function Checkout() {
                 <FileText className="w-6 h-6 mx-auto mb-2" style={{ color: '#0D0D1A' }} />
                 <p className="text-sm font-medium" style={{ color: '#0D0D1A' }}>Boleto</p>
               </button>
+            </div>
+
+            {/* Dados do Cliente */}
+            <div className="space-y-4 mb-6">
+              <h3 className="text-lg font-semibold" style={{ color: '#0D0D1A' }}>
+                Dados para Faturamento
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="customerName">Nome Completo *</Label>
+                  <Input
+                    id="customerName"
+                    placeholder="Seu nome completo"
+                    value={customerData.name}
+                    onChange={(e) => setCustomerData(prev => ({ ...prev, name: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="customerCpfCnpj">CPF/CNPJ *</Label>
+                  <Input
+                    id="customerCpfCnpj"
+                    placeholder="000.000.000-00 ou 00.000.000/0000-00"
+                    value={customerData.cpfCnpj}
+                    onChange={(e) => setCustomerData(prev => ({ ...prev, cpfCnpj: e.target.value }))}
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="customerPhone">Telefone</Label>
+                  <Input
+                    id="customerPhone"
+                    placeholder="(11) 99999-9999"
+                    value={customerData.phone}
+                    onChange={(e) => setCustomerData(prev => ({ ...prev, phone: e.target.value }))}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="customerPostalCode">CEP</Label>
+                  <Input
+                    id="customerPostalCode"
+                    placeholder="00000-000"
+                    value={customerData.postalCode}
+                    onChange={(e) => setCustomerData(prev => ({ ...prev, postalCode: e.target.value }))}
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <Label htmlFor="customerAddress">Endereço</Label>
+                <Input
+                  id="customerAddress"
+                  placeholder="Rua, número, complemento"
+                  value={customerData.address}
+                  onChange={(e) => setCustomerData(prev => ({ ...prev, address: e.target.value }))}
+                />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="customerCity">Cidade</Label>
+                  <Input
+                    id="customerCity"
+                    placeholder="Sua cidade"
+                    value={customerData.city}
+                    onChange={(e) => setCustomerData(prev => ({ ...prev, city: e.target.value }))}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="customerState">Estado</Label>
+                  <Input
+                    id="customerState"
+                    placeholder="SP"
+                    value={customerData.state}
+                    onChange={(e) => setCustomerData(prev => ({ ...prev, state: e.target.value }))}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Formulários */}
