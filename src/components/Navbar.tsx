@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,12 +8,44 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+    };
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    loadUser();
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
+
+  const signInWithGithub = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "github",
+      options: {
+        redirectTo: typeof window !== "undefined" ? window.location.origin : undefined,
+      },
+    });
+  };
+
+  const signOut = async () => {
+    await supabase.auth.signOut();
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-xl z-50 border-b border-gray-100" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
@@ -84,15 +116,28 @@ export const Navbar = () => {
               Contato
             </Link>
 
-            <a
-              href="https://wa.me/5511999999999"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#0D0D1A] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#111122] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-300"
-              style={{ letterSpacing: '0.03em' }}
-            >
-              WhatsApp
-            </a>
+            {user ? (
+              <div className="flex items-center space-x-3">
+                <span className="text-sm" style={{ color: '#6e6e73' }}>
+                  {user.email || user.user_metadata?.name || 'Minha conta'}
+                </span>
+                <Button
+                  variant="ghost"
+                  className="text-sm"
+                  onClick={signOut}
+                >
+                  Sair
+                </Button>
+              </div>
+            ) : (
+              <Button
+                className="bg-[#0D0D1A] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#111122] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-300"
+                style={{ letterSpacing: '0.03em' }}
+                onClick={signInWithGithub}
+              >
+                Entrar com GitHub
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -124,15 +169,22 @@ export const Navbar = () => {
               <Link to="/contato" className="hover:text-apple-blue-hover transition-colors text-black" onClick={() => setIsOpen(false)}>
                 Contato
               </Link>
-            <a
-              href="https://discord.gg/codegrana"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold w-full text-center hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md"
-              onClick={() => setIsOpen(false)}
-            >
-              Discord
-            </a>
+            {user ? (
+              <Button
+                variant="outline"
+                className="w-full text-black"
+                onClick={() => { setIsOpen(false); signOut(); }}
+              >
+                Sair
+              </Button>
+            ) : (
+              <Button
+                className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold w-full text-center hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md"
+                onClick={() => { setIsOpen(false); signInWithGithub(); }}
+              >
+                Entrar com GitHub
+              </Button>
+            )}
             </div>
           </div>
         )}

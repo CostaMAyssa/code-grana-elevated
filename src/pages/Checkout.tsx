@@ -106,6 +106,15 @@ export default function Checkout() {
     loadUser();
   }, []);
 
+  const signInWithGithub = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "github",
+      options: {
+        redirectTo: typeof window !== "undefined" ? window.location.origin : undefined,
+      },
+    });
+  };
+
   // Polling para verificar status do pagamento
   useEffect(() => {
     if (!paymentData?.paymentId) return;
@@ -156,10 +165,35 @@ export default function Checkout() {
     );
   }
 
+  if (!user) {
+    return (
+      <div className="min-h-screen pt-24 pb-16 flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: '#6e6e73' }} />
+          <h2
+            className="text-[1.8rem] font-semibold tracking-tight mb-4"
+            style={{ letterSpacing: '-0.01em', color: '#0D0D1A' }}
+          >
+            Faça login para finalizar a compra
+          </h2>
+          <p className="mb-6" style={{ color: '#6e6e73' }}>
+            Ao concluir o pagamento, seu acesso ao produto será liberado na sua conta.
+          </p>
+          <Button
+            className="bg-[#0D0D1A] hover:bg-[#111122] text-white"
+            style={{ letterSpacing: '0.03em' }}
+            onClick={signInWithGithub}
+          >
+            Entrar com GitHub
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   const handlePayment = async () => {
     if (!user) {
       toast.error("Faça login para continuar");
-      navigate("/login");
       return;
     }
 
