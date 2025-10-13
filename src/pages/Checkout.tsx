@@ -91,13 +91,13 @@ export default function Checkout() {
         
         if (profile) {
           setCustomerData({
-            name: profile.full_name || user.user_metadata?.full_name || "",
+            name: profile.name || user.user_metadata?.full_name || user.email?.split('@')[0] || "",
             cpfCnpj: profile.cpf_cnpj || "",
-            phone: profile.phone || "",
-            address: profile.address || "",
-            city: profile.city || "",
-            state: profile.state || "",
-            postalCode: profile.postal_code || "",
+            phone: "",
+            address: "",
+            city: "",
+            state: "",
+            postalCode: "",
           });
         }
       }

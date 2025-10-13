@@ -84,6 +84,7 @@ export default function Products() {
       name: product.name,
       price: product.price,
       image: product.image,
+      quantity: 1,
     });
     toast.success(`${product.name} adicionado ao carrinho!`);
   };
