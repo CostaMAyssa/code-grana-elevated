@@ -106,14 +106,7 @@ export default function Checkout() {
     loadUser();
   }, []);
 
-  const signInWithGithub = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "github",
-      options: {
-        redirectTo: typeof window !== "undefined" ? window.location.origin : undefined,
-      },
-    });
-  };
+  // Login agora é feito via página interna
 
   // Polling para verificar status do pagamento
   useEffect(() => {
@@ -127,11 +120,11 @@ export default function Checkout() {
           .eq('asaas_id', paymentData.paymentId)
           .single();
 
-        if (payment?.status === 'confirmed') {
+        if (payment?.status === 'CONFIRMED') {
           toast.success("Pagamento confirmado! Verifique seu e-mail para o link de download.");
           clearCart();
           clearInterval(interval);
-          navigate("/members");
+          navigate("/membros");
         }
       } catch (error) {
         console.error('Erro ao verificar status:', error);
@@ -182,9 +175,9 @@ export default function Checkout() {
           <Button
             className="bg-[#0D0D1A] hover:bg-[#111122] text-white"
             style={{ letterSpacing: '0.03em' }}
-            onClick={signInWithGithub}
+            onClick={() => navigate('/entrar', { state: { from: '/checkout' } })}
           >
-            Entrar com GitHub
+            Entrar
           </Button>
         </div>
       </div>

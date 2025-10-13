@@ -15,6 +15,9 @@ import Members from "./pages/Members";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Entrar from "./pages/Entrar";
+import Cadastrar from "./pages/Cadastrar";
+import RecuperarSenha from "./pages/RecuperarSenha";
 
 const queryClient = new QueryClient();
 
@@ -24,13 +27,16 @@ const App = () => (
       <CartProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/produtos" element={<Products />} />
           <Route path="/produto/:id" element={<ProductDetail />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/entrar" element={<Entrar />} />
+          <Route path="/cadastrar" element={<Cadastrar />} />
+          <Route path="/recuperar-senha" element={<RecuperarSenha />} />
           <Route path="/membros" element={<Members />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/contato" element={<Contact />} />

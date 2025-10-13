@@ -34,14 +34,7 @@ export const Navbar = () => {
     };
   }, []);
 
-  const signInWithGithub = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "github",
-      options: {
-        redirectTo: typeof window !== "undefined" ? window.location.origin : undefined,
-      },
-    });
-  };
+  // Autenticação agora via páginas internas (Entrar/Cadastrar)
 
   const signOut = async () => {
     await supabase.auth.signOut();
@@ -130,13 +123,14 @@ export const Navbar = () => {
                 </Button>
               </div>
             ) : (
-              <Button
-                className="bg-[#0D0D1A] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#111122] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-300"
-                style={{ letterSpacing: '0.03em' }}
-                onClick={signInWithGithub}
-              >
-                Entrar com GitHub
-              </Button>
+              <Link to="/entrar">
+                <Button
+                  className="bg-[#0D0D1A] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#111122] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-300"
+                  style={{ letterSpacing: '0.03em' }}
+                >
+                  Entrar
+                </Button>
+              </Link>
             )}
           </div>
 
@@ -178,12 +172,13 @@ export const Navbar = () => {
                 Sair
               </Button>
             ) : (
-              <Button
-                className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold w-full text-center hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md"
-                onClick={() => { setIsOpen(false); signInWithGithub(); }}
-              >
-                Entrar com GitHub
-              </Button>
+              <Link to="/entrar" onClick={() => setIsOpen(false)}>
+                <Button
+                  className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold w-full text-center hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md"
+                >
+                  Entrar
+                </Button>
+              </Link>
             )}
             </div>
           </div>
